@@ -4,8 +4,7 @@ In addition, it creates basic html, css and JSON for each layer's image as an ab
 
 See the demos for examples.
 
-To use: 
- 	open a photoshop doc; in the File menu, navigate to scripts -> browse.
+To use: open a photoshop doc; in the File menu, navigate to scripts -> browse.
         navigate to where you've stored this script and open it.
         Select your export options and destination in the dialog box, click 'run'. 
 	Files will be created; the html and css and js will have the name you entered in the file name prefix field in the dialog box.
@@ -13,4 +12,4 @@ To use:
 
 NOTE: The fewer layers you export, the faster this will run. 
       On a 40-layer doc, the script took about 20 minutes to run.
-      On the samples in the rpo, it took under a minute.
+      On the samples in the repo, it took under a minute.
