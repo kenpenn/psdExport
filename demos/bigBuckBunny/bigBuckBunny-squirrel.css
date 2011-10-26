@@ -1,0 +1,59 @@
+/* exported css for bigBuckBunny-squirrel.psd */
+
+
+body { margin: 0px; padding:0px; background: hsl(229, 47%, 9%); }
+
+
+#container {
+    margin: 5px auto;
+    position: relative;
+    padding: 0px;
+    width: 640px;
+    height: 363px;
+    background: #000;
+}
+
+
+#bigBuckBunny-squirrel-4-sky {
+    position: absolute;
+    top:    0px;
+    left:   0px;
+    height: 363px;
+    width:  640px;
+}
+
+
+#bigBuckBunny-squirrel-3-cloud-left {
+    position: absolute;
+    top:    0px;
+    left:   0px;
+    height: 131px;
+    width:  296px;
+}
+
+
+#bigBuckBunny-squirrel-2-cloud-right {
+    position: absolute;
+    top:    155px;
+    left:   376px;
+    height: 208px;
+    width:  264px;
+}
+
+
+#bigBuckBunny-squirrel-1-tree {
+    position: absolute;
+    top:    25px;
+    left:   0px;
+    height: 338px;
+    width:  238px;
+}
+
+
+#bigBuckBunny-squirrel-0-squirrel {
+    position: absolute;
+    top:    66px;
+    left:   194px;
+    height: 279px;
+    width:  250px;
+}
