@@ -1,12 +1,12 @@
 ﻿/**
  * export layers to html
  * exports photoshop layers as .png or .jpg;
- * also creates along html, css & json for the images,
+ * also creates html, css & json for the images,
  * within absolutely positioned divs.
- * 
+ *
  * usage: open a photoshop doc; in the File menu, navigate to scripts -> browse.
  *        navigate to this script and open it.
- *        Select your export options and destination in the 
+ *        Select your export options and destination in the
  *        dialog box, click 'run'. Files will be created
  */
 
@@ -16,37 +16,18 @@
  * export layers to files.jsx written by Naoki Hada 2007
  * export layers to files.jsx ZStrings and auto layout by Tom Ruark
  */
- 
+
 /**
  * this script copyright 2011 Ken Penn, http://kpenn.com/
- * 
- * Permission is hereby granted, free of charge, to any person obtaining
- * a copy of this software and associated documentation files (the
- * "Software"), to deal in the Software without restriction, including
- * without limitation the rights to use, copy, modify, merge, publish,
- * distribute, sublicense, and/or sell copies of the Software, and to
- * permit persons to whom the Software is furnished to do so, subject to
- * the following conditions:
- * 
- * The above copyright notices and this permission notice shall be
- * included in all copies or substantial portions of the Software.
- * 
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
- * EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
- * MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
- * NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
- * LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
- * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
- * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
- */
+ * licensed under the GPL license
+*/
 
-
-// enable double clicking from the Macintosh Finder or the Windows Explorer
+// enable double clicking from Mac Finder or Windows Explorer
 // if you need to jslint this, comment out the '#target' line below
 #target photoshop
 
 // debug level: 0-2 (0:disable, 1:break on error, 2:break at beginning)
-// $.level = 0;
+// $.level = 2;
 // debugger; // launch debugger on next line
 
 // on localized builds we pull the $$$/Strings from a .dat file, see documentation for more details
@@ -186,10 +167,8 @@ function webStr(strIn) {
 function settingDialog(exportInfo) {
 
   var brush,
-      defaultFolder,
       destination,
       result,
-      selFolder,
       testFolder;
 
   dlgMain = new Window('dialog', strTitle);
@@ -231,15 +210,15 @@ function settingDialog(exportInfo) {
   dlgMain.btnBrowse.alignment = 'right';
 
   dlgMain.btnBrowse.onClick = function() {
-    defaultFolder = dlgMain.etDestination.text;
+    var defaultFolder = dlgMain.etDestination.text;
     testFolder = new Folder(dlgMain.etDestination.text);
     if (!testFolder.exists) {
       defaultFolder = '~';
     }
-    selFolder = new Folder.selectDialog(strTitleSelectDestination, defaultFolder);
+    var selFolder = Folder.selectDialog(strTitleSelectDestination, defaultFolder);
     if ( selFolder != null ) {
           dlgMain.etDestination.text = selFolder.fsName;
-      }
+    }
     dlgMain.defaultElement.active = true;
   };
 
@@ -341,6 +320,7 @@ function settingDialog(exportInfo) {
 
   dlgMain.btnRun.onClick = function() {
 
+    destination = dlgMain.etDestination.text;
     if (destination.length == 0) {
       alert(strAlertSpecifyDestination);
       return;
